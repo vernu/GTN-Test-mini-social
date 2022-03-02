@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common'
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard'
 import { PostsService } from './posts.service'
 
 @Controller('posts')
@@ -17,6 +18,7 @@ export class PostsController {
     return { data }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post('/')
   async createPost(@Body() postData: any) {
     const data = await this.postsService.create(postData)

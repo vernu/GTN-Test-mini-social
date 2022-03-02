@@ -1,11 +1,13 @@
 import { Module, Post } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
+import { AuthModule } from 'src/auth/auth.module'
 import { PostSchema } from './post.schema'
 import { PostsController } from './posts.controller'
 import { PostsService } from './posts.service'
 
 @Module({
   imports: [
+    AuthModule,
     MongooseModule.forFeature([
       {
         name: Post.name,
