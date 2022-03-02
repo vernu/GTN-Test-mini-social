@@ -13,7 +13,7 @@ export class PostsController {
   }
 
   @Get('/:id')
-  async getPostById(@Param() id: string) {
+  async getPostById(@Param('id') id: string) {
     const data = await this.postsService.findOne({ _id: id })
     return { data }
   }
