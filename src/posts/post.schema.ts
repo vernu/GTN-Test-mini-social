@@ -4,7 +4,7 @@ import { User } from '../users/user.schema'
 
 export type PostDocument = Post & Document
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: true,  })
 export class Post {
   _id?: Types.ObjectId
   @Prop({ type: String, required: true })
